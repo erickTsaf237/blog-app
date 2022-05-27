@@ -1,4 +1,4 @@
-import { Column, ForeignKey, Model, Table } from 'sequelize-typescript';
+import { BelongsTo, Column, ForeignKey, Model, Table } from 'sequelize-typescript';
 import { Picture } from '../../pictures/model/pictures.model';
 
 @Table
@@ -9,10 +9,10 @@ export class User extends Model {
   id_picture: number
 
   @Column
-  firstName: string;
+  firstname: string;
 
   @Column
-  lastName: string
+  lastname: string
 
   @Column
   username: string
@@ -22,5 +22,9 @@ export class User extends Model {
 
   @Column
   password: string
+
+
+  @BelongsTo(()=>Picture)
+  picture: Picture
 
 }
