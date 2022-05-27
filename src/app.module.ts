@@ -13,7 +13,9 @@ import { Visibility } from './visibilities/model/visibilities.model';
 import { AlbumsModule } from './albums/albums.module';
 import { Album } from './albums/model/albums.model';
 import { PostsModule } from './posts/posts.module';
+import { Poste } from './posts/model/posts.model';
 
+// @ts-ignore
 @Module({
   imports: [UsersModule,PicturesModule,
     VisibilitiesModule, SequelizeModule.forRoot({
@@ -23,7 +25,7 @@ import { PostsModule } from './posts/posts.module';
     username: 'blog',
     password: 'blog-app',
     database: 'blog',
-    models: [User, Picture, Visibility, Album],
+    models: [User, Picture, Visibility, Album, Poste],
     synchronize: true,
     autoLoadModels: false,
   }), AlbumsModule, PostsModule, ],
