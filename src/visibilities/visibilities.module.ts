@@ -7,6 +7,7 @@ import { Visibility } from './model/visibilities.model';
 @Module({
   imports: [SequelizeModule.forFeature([Visibility])],
   controllers: [VisibilitiesController],
+  exports: [VisibilitiesService],
   providers: [VisibilitiesService]
 })
 export class VisibilitiesModule {}

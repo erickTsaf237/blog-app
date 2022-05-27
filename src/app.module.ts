@@ -10,21 +10,25 @@ import { VisibilitiesController } from './visibilities/visibilities.controller';
 import { VisibilitiesService } from './visibilities/visibilities.service';
 import { VisibilitiesModule } from './visibilities/visibilities.module';
 import { Visibility } from './visibilities/model/visibilities.model';
+import { AlbumsModule } from './albums/albums.module';
+import { Album } from './albums/model/albums.model';
+import { PostsModule } from './posts/posts.module';
 
 @Module({
-  imports: [UsersModule,PicturesModule, VisibilitiesModule, SequelizeModule.forRoot({
+  imports: [UsersModule,PicturesModule,
+    VisibilitiesModule, SequelizeModule.forRoot({
     dialect: 'mysql',
     host: 'localhost',
     port: 3306,
     username: 'blog',
     password: 'blog-app',
     database: 'blog',
-    models: [User, Picture, Visibility,],
+    models: [User, Picture, Visibility, Album],
     synchronize: true,
-    autoLoadModels: true,
-  }), ],
-  controllers: [AppController, VisibilitiesController],
-  providers: [AppService, VisibilitiesService],
+    autoLoadModels: false,
+  }), AlbumsModule, PostsModule, ],
+  controllers: [AppController],
+  providers: [AppService],
 
 })
 export class AppModule {}

@@ -50,7 +50,7 @@ export class PicturesService {
   createPicture(newPicture: Picture) {
     // @ts-ignore
     return this.pictureModel.create(newPicture)
-      .then(result=>{return new Message("successfully created", Message)})
+      .then(result=>{return new Message("successfully created", result)})
       .catch(error =>{ return new Message(error, undefined)})
   }
 
