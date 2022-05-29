@@ -14,6 +14,8 @@ import { AlbumsModule } from './albums/albums.module';
 import { Album } from './albums/model/albums.model';
 import { PostsModule } from './posts/posts.module';
 import { Poste } from './posts/model/posts.model';
+import { CommentsModule } from './comments/comments.module';
+import { PossessModule } from './possess/possess.module';
 
 // @ts-ignore
 @Module({
@@ -28,7 +30,7 @@ import { Poste } from './posts/model/posts.model';
     models: [User, Picture, Visibility, Album, Poste],
     synchronize: true,
     autoLoadModels: false,
-  }), AlbumsModule, PostsModule, ],
+  }), AlbumsModule, PostsModule, CommentsModule, PossessModule, ],
   controllers: [AppController],
   providers: [AppService],
 
