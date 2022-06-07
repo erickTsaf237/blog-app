@@ -2,22 +2,23 @@
 
 import { Table, BelongsTo, HasMany, ForeignKey, Model, Column } from 'sequelize-typescript';
 import { Poste } from '../../posts/model/posts.model';
-import { Album } from '../../albums/model/albums.model';
+import { User } from '../../users/model/users.model';
 
 @Table
-export class Possess extends Model{
-  @ForeignKey(()=>Album)
+export class Share extends Model{
+  @ForeignKey(()=>User)
   @Column
-  id_album: number
+  id_users: number
 
   @ForeignKey(()=>Poste)
   @Column
   id_post: number
 
-  @BelongsTo(()=>Album)
-  album: Album
+  @BelongsTo(()=>User)
+  user: User
 
   @BelongsTo(()=>Poste)
   poste: Poste
 
 }
+

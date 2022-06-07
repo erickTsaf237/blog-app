@@ -89,4 +89,8 @@ export class UsersService {
         return new Message({ message:"Error !!!!", error }.toString(), undefined)
       })
   }
+
+  getAllUsersBy(limit: number, offset: number= 10) {
+    return this.userModel.findAll({limit: limit, offset: offset})
+  }
 }

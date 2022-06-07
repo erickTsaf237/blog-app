@@ -16,6 +16,10 @@ export class PostsController {
   findOnePosts(@Param('id') id: string){
     return this.postsService.findOnePost(id)
   }
+  // @Get('id/:id')
+  // findOnePosts(@Param('id_album') id: string){
+  //   return this.postsService.findOnePost(id)
+  // }
 
 
   @Post()

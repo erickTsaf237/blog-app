@@ -15,11 +15,17 @@ export class PossessController {
   updatePossess(@Body() updatedPossess: Possess){
     return this.possessService.updatePossess(updatedPossess)
   }
+  @Get('album/:id')
+  findAllPossessByAlbumID(@Param('id') id: string){
+    console.log(`\n\nje ne vous dis pas ${id}\n\n`)
+    return this.possessService.findAllPossess(id)
+  }
 
   @Get()
   findAllPossess(){
     return this.possessService.findAllPossess()
   }
+
 
   @Get(':id')
   findOnePossess(@Param('id') id: string){

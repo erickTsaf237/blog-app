@@ -4,6 +4,7 @@ import { Album } from './model/albums.model';
 import { Message } from '../tools/message';
 import { User } from '../users/model/users.model';
 import { Visibility } from '../visibilities/model/visibilities.model';
+import { Picture } from '../pictures/model/pictures.model';
 
 @Injectable()
 export class AlbumsService {
@@ -39,8 +40,8 @@ export class AlbumsService {
   }
 
   //@ts-ignore
-  async findAllAlbum(): Message {
-    return await this.albumModel.findAll()
+  async findAllAlbum(id_visibility: number= 1): Message {
+    return await this.albumModel.findAll({include:[User, Picture], where:{id_visibility}})
       .then((result)=>{
         return new Message("List of all albums", result)
       })

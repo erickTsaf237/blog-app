@@ -12,7 +12,7 @@ export class Comment extends Model{
 
   @ForeignKey(()=>User)
   @Column
-  id_user: number
+  id_users: number
 
   @Column
   text:string
@@ -28,3 +28,5 @@ export class Comment extends Model{
 
 
 }
+
+export type COMMENT = Comment

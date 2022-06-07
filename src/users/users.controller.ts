@@ -30,4 +30,9 @@ export class UsersController {
   findAllUser(){
     return this.userService.findAllUser()
   }
+  @Get(':by/:nbr')
+  getAllUsersBy(@Param('by')limit: string, @Param('nbr')offset: string){
+    console.log("\n\n"+limit+"    "+offset+"\n\n")
+    return this.userService.getAllUsersBy(+limit, +offset)
+  }
 }
